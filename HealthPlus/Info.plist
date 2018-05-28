@@ -40,6 +40,14 @@
 	<string></string>
 	<key>NSHealthUpdateUsageDescription</key>
 	<string></string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Run Tracker</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Record where you run in GPS</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Run Tracker</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Run Tracker</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
