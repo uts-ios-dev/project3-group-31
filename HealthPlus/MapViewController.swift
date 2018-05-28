@@ -28,11 +28,23 @@ class MapViewController : UIViewController, MKMapViewDelegate, CLLocationManager
             locationManager.startUpdatingLocation()
         }
     }
+    //Override the Update location function, so that I can act whenever iOS updates the map with my new location
     func locationManager(_ _manager : CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.first!
+        let location = locations.last!
+        //Set to the whole area of the map shows 500 by 500
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, 500, 500)
         mapView.setRegion(coordinateRegion, animated: true)
+        //Set my current location using a 2d point so I can being drawing with it.
+        let currLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        
         locationManager.stopUpdatingLocation()
+    }
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = UIColor.red
+        renderer.lineWidth = 4.0
+        
+        return renderer
     }
     
     @IBOutlet weak var mapView: MKMapView!
