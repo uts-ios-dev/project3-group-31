@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		04DF386720BBC7A6004DB45D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF386620BBC7A6004DB45D /* MapViewController.swift */; };
+		04DF38A720BBD9B8004DB45D /* HealthPlus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04DF38A520BBD9B8004DB45D /* HealthPlus.xcdatamodeld */; };
+		04DF38A920BBDAA6004DB45D /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF38A820BBDAA6004DB45D /* CoreData.swift */; };
 		0AA293CA20B38E9200C81A5D /* NutritionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA293C920B38E9200C81A5D /* NutritionViewController.swift */; };
 		0AEE38E220B384250020726D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE38E120B384250020726D /* AppDelegate.swift */; };
 		0AEE38E420B384250020726D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE38E320B384250020726D /* ViewController.swift */; };
@@ -38,6 +40,8 @@
 
 /* Begin PBXFileReference section */
 		04DF386620BBC7A6004DB45D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		04DF38A620BBD9B8004DB45D /* HealthPlus.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HealthPlus.xcdatamodel; sourceTree = "<group>"; };
+		04DF38A820BBDAA6004DB45D /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		0AA293C920B38E9200C81A5D /* NutritionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionViewController.swift; sourceTree = "<group>"; };
 		0AEE38DE20B384250020726D /* HealthPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEE38E120B384250020726D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +84,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04DF38AA20BBDAD2004DB45D /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				04DF38A520BBD9B8004DB45D /* HealthPlus.xcdatamodeld */,
+				04DF38A820BBDAA6004DB45D /* CoreData.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		04DF38AB20BBDAE6004DB45D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0AA293C920B38E9200C81A5D /* NutritionViewController.swift */,
+				0AEE390F20B3874D0020726D /* ActivityTableViewController.swift */,
+				0AEE38E320B384250020726D /* ViewController.swift */,
+				04DF386620BBC7A6004DB45D /* MapViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
 		0AEE38D520B384250020726D = {
 			isa = PBXGroup;
 			children = (
@@ -103,15 +127,13 @@
 		0AEE38E020B384250020726D /* HealthPlus */ = {
 			isa = PBXGroup;
 			children = (
-				0AA293C920B38E9200C81A5D /* NutritionViewController.swift */,
-				0AEE390F20B3874D0020726D /* ActivityTableViewController.swift */,
+				04DF38AB20BBDAE6004DB45D /* View Controllers */,
+				04DF38AA20BBDAD2004DB45D /* Core Data */,
 				0AEE38E120B384250020726D /* AppDelegate.swift */,
-				0AEE38E320B384250020726D /* ViewController.swift */,
 				0AEE38E520B384250020726D /* Main.storyboard */,
 				0AEE38E820B384250020726D /* Assets.xcassets */,
 				0AEE38EA20B384250020726D /* LaunchScreen.storyboard */,
 				0AEE38ED20B384250020726D /* Info.plist */,
-				04DF386620BBC7A6004DB45D /* MapViewController.swift */,
 			);
 			path = HealthPlus;
 			sourceTree = "<group>";
@@ -272,7 +294,9 @@
 				0AEE38E220B384250020726D /* AppDelegate.swift in Sources */,
 				0AEE391020B3874D0020726D /* ActivityTableViewController.swift in Sources */,
 				04DF386720BBC7A6004DB45D /* MapViewController.swift in Sources */,
+				04DF38A920BBDAA6004DB45D /* CoreData.swift in Sources */,
 				0AA293CA20B38E9200C81A5D /* NutritionViewController.swift in Sources */,
+				04DF38A720BBD9B8004DB45D /* HealthPlus.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,6 +592,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		04DF38A520BBD9B8004DB45D /* HealthPlus.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				04DF38A620BBD9B8004DB45D /* HealthPlus.xcdatamodel */,
+			);
+			currentVersion = 04DF38A620BBD9B8004DB45D /* HealthPlus.xcdatamodel */;
+			path = HealthPlus.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0AEE38D620B384250020726D /* Project object */;
 }
