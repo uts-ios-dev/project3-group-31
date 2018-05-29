@@ -284,6 +284,9 @@
                             <outlet property="delegate" destination="d8A-5u-rjx" id="dKV-2y-4DM"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="bpmTxt" destination="M7X-Jt-gU7" id="IDi-fj-53V"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kVw-rn-Yi4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

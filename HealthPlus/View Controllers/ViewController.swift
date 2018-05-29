@@ -22,6 +22,24 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+    
+    // WRITE A SAMPLE HEART RATE TO HEALTHKIT FOR USE ON ACTIVITY TRACKER (executed during segue)
+    public func submitHR(HR: Int, forDate : Date) {
+        let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!
+        let heartRate = HKQuantitySample (type: quantityType,
+                                          quantity: HKQuantity.init(unit: HKUnit.count().unitDivided(by: HKUnit.minute()), doubleValue: Double(HR)),
+                                         start: forDate,
+                                         end: forDate)
+        healthStore!.save(heartRate) { success, error in
+            if (error != nil) {
+                print("Error: \(String(describing: error))")
+            }
+            if success {
+                print("Saved: \(success)")
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +53,13 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let activityScene = segue.destination as? ActivityTableViewController {
+            activityScene.healthStore = healthStore
+            submitHR(HR: 67, forDate: Date())
+        }
     }
 }
 
