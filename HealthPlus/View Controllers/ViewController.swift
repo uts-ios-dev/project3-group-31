@@ -14,9 +14,12 @@ class ViewController: UIViewController {
     
     func requestPerms() {
         let allDataTypes = Set([HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
-                                HKObjectType.quantityType(forIdentifier: .heartRate)!])
+                                HKObjectType.quantityType(forIdentifier: .heartRate)!,
+                                HKObjectType.quantityType(forIdentifier: .height)!,
+                                HKObjectType.quantityType(forIdentifier: .bodyMass)!,
+                                HKObjectType.characteristicType(forIdentifier: .dateOfBirth)!])
         
-        healthStore!.requestAuthorization(toShare: allDataTypes, read: allDataTypes) { (success, error) in
+        healthStore!.requestAuthorization(toShare: allDataTypes as? Set<HKSampleType>, read: allDataTypes) { (success, error) in
             if !success {
                 print("Failed to access")
             }
@@ -24,14 +27,52 @@ class ViewController: UIViewController {
     }
     
     
-    // WRITE A SAMPLE HEART RATE TO HEALTHKIT FOR USE ON ACTIVITY TRACKER (executed during segue)
-    public func submitHR(HR: Int, forDate : Date) {
+    // WRITE SAMPLE DATA TO HEALTHKIT FOR USE IN OTHER SCENES (executed during segue)
+    public func submitData(HR: Int, height: Double, weight: Double, forDate: Date) {
+        sampleHR(HR: HR, forDate: forDate)
+        sampleHeight(height: height, forDate: forDate)
+        sampleWeight(weight: weight, forDate: forDate)
+    }
+    
+    func sampleHR(HR: Int, forDate: Date) {
         let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!
         let heartRate = HKQuantitySample (type: quantityType,
                                           quantity: HKQuantity.init(unit: HKUnit.count().unitDivided(by: HKUnit.minute()), doubleValue: Double(HR)),
-                                         start: forDate,
-                                         end: forDate)
+                                          start: forDate,
+                                          end: forDate)
         healthStore!.save(heartRate) { success, error in
+            if (error != nil) {
+                print("Error: \(String(describing: error))")
+            }
+            if success {
+                print("Saved: \(success)")
+            }
+        }
+    }
+    
+    func sampleHeight(height: Double, forDate: Date) {
+        let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
+        let heightData = HKQuantitySample (type: quantityType,
+                                           quantity: HKQuantity.init(unit: HKUnit.meter(), doubleValue: Double(height)),
+                                           start: forDate,
+                                           end: forDate)
+        healthStore!.save(heightData) { success, error in
+            if (error != nil) {
+                print("Error: \(String(describing: error))")
+            }
+            if success {
+                print("Saved: \(success)")
+            }
+        }
+    }
+    
+    func sampleWeight(weight: Double, forDate: Date) {
+        let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!
+        let weightData = HKQuantitySample (type: quantityType,
+                                           quantity: HKQuantity.init(unit: HKUnit.gramUnit(with: .kilo), doubleValue: Double(weight)),
+                                           start: forDate,
+                                           end: forDate)
+        healthStore!.save(weightData) { success, error in
             if (error != nil) {
                 print("Error: \(String(describing: error))")
             }
@@ -58,7 +99,11 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let activityScene = segue.destination as? ActivityTableViewController {
             activityScene.healthStore = healthStore
-            submitHR(HR: 67, forDate: Date())
+            submitData(HR: 67, height: 1.84, weight: 78.25, forDate: Date())
+        }
+        if let nutritionScene = segue.destination as? NutritionViewController {
+            submitData(HR: 67, height: 1.84, weight: 78.25, forDate: Date())
+            nutritionScene.healthStore = healthStore
         }
     }
 }
