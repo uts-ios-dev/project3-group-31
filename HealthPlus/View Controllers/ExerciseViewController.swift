@@ -37,6 +37,16 @@ class ExerciseViewController : UIViewController {
         humanNode.scale = SCNVector3(x: 0.05, y: 0.05, z: 0.05)
         humanNode.position = SCNVector3(x: 0, y: -4, z: 0)
         humanNode.rotation = SCNVector4(x: 180, y: 180, z: 180, w: 0)
+        let bodyMaterial = SCNMaterial()
+        let faceMaterial = SCNMaterial()
+        let eyesMaterial = SCNMaterial()
+        bodyMaterial.diffuse.contents = UIImage(named: "Man_body_diff.tga")
+        faceMaterial.diffuse.contents = UIImage(named: "Man_face_diff.tga")
+        eyesMaterial.diffuse.contents = UIImage(named: "Man_eyes_diff.tga")
+        
+        //Create the the node and apply texture
+
+        humanNode.geometry?.materials = [bodyMaterial]
         scene.rootNode.addChildNode(humanNode)
    //     scene.rootNode.addParticleSystem(stars)
         cameraNode.camera = SCNCamera()

@@ -11,13 +11,7 @@
 		04DF38A720BBD9B8004DB45D /* HealthPlus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04DF38A520BBD9B8004DB45D /* HealthPlus.xcdatamodeld */; };
 		04DF38A920BBDAA6004DB45D /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF38A820BBDAA6004DB45D /* CoreData.swift */; };
 		04DF38AD20BDA7D2004DB45D /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF38AC20BDA7D2004DB45D /* ExerciseViewController.swift */; };
-		04DF38B020BDA8E5004DB45D /* smoke.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DF38AE20BDA8E5004DB45D /* smoke.png */; };
-		04DF38B120BDA8E5004DB45D /* smokeParticle.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 04DF38AF20BDA8E5004DB45D /* smokeParticle.scnp */; };
-		04DF38B420BDAEE6004DB45D /* starParticle.scnp in Resources */ = {isa = PBXBuildFile; fileRef = 04DF38B220BDAEE6004DB45D /* starParticle.scnp */; };
-		04DF38B520BDAEE6004DB45D /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DF38B320BDAEE6004DB45D /* star.png */; };
-		04DF38B920BDB582004DB45D /* Max.obj in Resources */ = {isa = PBXBuildFile; fileRef = 04DF38B820BDB581004DB45D /* Max.obj */; };
-		04DF38BC20BDBB4D004DB45D /* man.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 04DF38BA20BDBB4D004DB45D /* man.mtl */; };
-		04DF38BD20BDBB4D004DB45D /* man.obj in Resources */ = {isa = PBXBuildFile; fileRef = 04DF38BB20BDBB4D004DB45D /* man.obj */; };
+		04E9D4B920BE6D28000B9738 /* man.obj in Resources */ = {isa = PBXBuildFile; fileRef = 04E9D4B820BE6D28000B9738 /* man.obj */; };
 		0AA293CA20B38E9200C81A5D /* NutritionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA293C920B38E9200C81A5D /* NutritionViewController.swift */; };
 		0AEE38E220B384250020726D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE38E120B384250020726D /* AppDelegate.swift */; };
 		0AEE38E420B384250020726D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE38E320B384250020726D /* ViewController.swift */; };
@@ -52,21 +46,15 @@
 		04DF38A620BBD9B8004DB45D /* HealthPlus.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HealthPlus.xcdatamodel; sourceTree = "<group>"; };
 		04DF38A820BBDAA6004DB45D /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		04DF38AC20BDA7D2004DB45D /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
-		04DF38AE20BDA8E5004DB45D /* smoke.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smoke.png; sourceTree = "<group>"; };
-		04DF38AF20BDA8E5004DB45D /* smokeParticle.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = smokeParticle.scnp; sourceTree = "<group>"; };
-		04DF38B220BDAEE6004DB45D /* starParticle.scnp */ = {isa = PBXFileReference; lastKnownFileType = file.scp; path = starParticle.scnp; sourceTree = "<group>"; };
-		04DF38B320BDAEE6004DB45D /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
-		04DF38B820BDB581004DB45D /* Max.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Max.obj; path = ../../../../../../Downloads/Max.obj; sourceTree = "<group>"; };
-		04DF38BA20BDBB4D004DB45D /* man.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = man.mtl; path = HealthPlus/Assets.xcassets/Man_OBJ/man.mtl; sourceTree = SOURCE_ROOT; };
-		04DF38BB20BDBB4D004DB45D /* man.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = man.obj; path = HealthPlus/Assets.xcassets/Man_OBJ/man.obj; sourceTree = SOURCE_ROOT; };
-		04DF38BE20BDBD50004DB45D /* Man_eyes_dif.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = Man_eyes_dif.tga; path = ../../../../../../Downloads/man/Man_eyes_dif.tga; sourceTree = "<group>"; };
-		04DF38BF20BDBD50004DB45D /* Man_body_spec.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = Man_body_spec.tga; path = ../../../../../../Downloads/man/Man_body_spec.tga; sourceTree = "<group>"; };
-		04DF38C020BDBD50004DB45D /* Man_body_nm.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = Man_body_nm.tga; path = ../../../../../../Downloads/man/Man_body_nm.tga; sourceTree = "<group>"; };
-		04DF38C120BDBD50004DB45D /* Man_eyes_spec.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = Man_eyes_spec.tga; path = ../../../../../../Downloads/man/Man_eyes_spec.tga; sourceTree = "<group>"; };
-		04DF38C220BDBD51004DB45D /* Man_face_nm.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = Man_face_nm.tga; path = ../../../../../../Downloads/man/Man_face_nm.tga; sourceTree = "<group>"; };
-		04DF38C320BDBD51004DB45D /* Man_face_dif.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = Man_face_dif.tga; path = ../../../../../../Downloads/man/Man_face_dif.tga; sourceTree = "<group>"; };
-		04DF38C420BDBD51004DB45D /* Man_face_spec.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = Man_face_spec.tga; path = ../../../../../../Downloads/man/Man_face_spec.tga; sourceTree = "<group>"; };
-		04DF38C520BDBD51004DB45D /* Man_body_dif.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = Man_body_dif.tga; path = ../../../../../../Downloads/man/Man_body_dif.tga; sourceTree = "<group>"; };
+		04E9D4AE20BE6CDA000B9738 /* Man_face_spec.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = Man_face_spec.tga; path = "../../../../../../Downloads/man-1/Man_face_spec.tga"; sourceTree = "<group>"; };
+		04E9D4AF20BE6CDA000B9738 /* Man_face_dif.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = Man_face_dif.tga; path = "../../../../../../Downloads/man-1/Man_face_dif.tga"; sourceTree = "<group>"; };
+		04E9D4B020BE6CDA000B9738 /* Man_face_nm.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = Man_face_nm.tga; path = "../../../../../../Downloads/man-1/Man_face_nm.tga"; sourceTree = "<group>"; };
+		04E9D4B120BE6CDA000B9738 /* Man_body_nm.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = Man_body_nm.tga; path = "../../../../../../Downloads/man-1/Man_body_nm.tga"; sourceTree = "<group>"; };
+		04E9D4B220BE6CDA000B9738 /* Man_eyes_dif.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = Man_eyes_dif.tga; path = "../../../../../../Downloads/man-1/Man_eyes_dif.tga"; sourceTree = "<group>"; };
+		04E9D4B320BE6CDA000B9738 /* Man_eyes_spec.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = Man_eyes_spec.tga; path = "../../../../../../Downloads/man-1/Man_eyes_spec.tga"; sourceTree = "<group>"; };
+		04E9D4B420BE6CDA000B9738 /* Man_body_dif.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = Man_body_dif.tga; path = "../../../../../../Downloads/man-1/Man_body_dif.tga"; sourceTree = "<group>"; };
+		04E9D4B520BE6CDA000B9738 /* Man_body_spec.tga */ = {isa = PBXFileReference; lastKnownFileType = file; name = Man_body_spec.tga; path = "../../../../../../Downloads/man-1/Man_body_spec.tga"; sourceTree = "<group>"; };
+		04E9D4B820BE6D28000B9738 /* man.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = man.obj; path = "../../../../../../Downloads/Man_OBJ-1/man.obj"; sourceTree = "<group>"; };
 		0AA293C920B38E9200C81A5D /* NutritionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionViewController.swift; sourceTree = "<group>"; };
 		0AEE38DE20B384250020726D /* HealthPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEE38E120B384250020726D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,22 +116,16 @@
 				0AEE390F20B3874D0020726D /* ActivityTableViewController.swift */,
 				0AEE38E320B384250020726D /* ViewController.swift */,
 				04DF38AC20BDA7D2004DB45D /* ExerciseViewController.swift */,
-				04DF38BA20BDBB4D004DB45D /* man.mtl */,
-				04DF38C520BDBD51004DB45D /* Man_body_dif.tga */,
-				04DF38C020BDBD50004DB45D /* Man_body_nm.tga */,
-				04DF38BF20BDBD50004DB45D /* Man_body_spec.tga */,
-				04DF38BE20BDBD50004DB45D /* Man_eyes_dif.tga */,
-				04DF38C120BDBD50004DB45D /* Man_eyes_spec.tga */,
-				04DF38C320BDBD51004DB45D /* Man_face_dif.tga */,
-				04DF38C220BDBD51004DB45D /* Man_face_nm.tga */,
-				04DF38C420BDBD51004DB45D /* Man_face_spec.tga */,
-				04DF38BB20BDBB4D004DB45D /* man.obj */,
-				04DF38B820BDB581004DB45D /* Max.obj */,
-				04DF38AE20BDA8E5004DB45D /* smoke.png */,
-				04DF38AF20BDA8E5004DB45D /* smokeParticle.scnp */,
-				04DF38B220BDAEE6004DB45D /* starParticle.scnp */,
-				04DF38B320BDAEE6004DB45D /* star.png */,
 				04DF386620BBC7A6004DB45D /* MapViewController.swift */,
+				04E9D4B420BE6CDA000B9738 /* Man_body_dif.tga */,
+				04E9D4B120BE6CDA000B9738 /* Man_body_nm.tga */,
+				04E9D4B520BE6CDA000B9738 /* Man_body_spec.tga */,
+				04E9D4B220BE6CDA000B9738 /* Man_eyes_dif.tga */,
+				04E9D4B320BE6CDA000B9738 /* Man_eyes_spec.tga */,
+				04E9D4AF20BE6CDA000B9738 /* Man_face_dif.tga */,
+				04E9D4B020BE6CDA000B9738 /* Man_face_nm.tga */,
+				04E9D4AE20BE6CDA000B9738 /* Man_face_spec.tga */,
+				04E9D4B820BE6D28000B9738 /* man.obj */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -322,16 +304,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04DF38BC20BDBB4D004DB45D /* man.mtl in Resources */,
-				04DF38B120BDA8E5004DB45D /* smokeParticle.scnp in Resources */,
+				04E9D4B920BE6D28000B9738 /* man.obj in Resources */,
 				0AEE38EC20B384250020726D /* LaunchScreen.storyboard in Resources */,
-				04DF38B420BDAEE6004DB45D /* starParticle.scnp in Resources */,
 				0AEE38E920B384250020726D /* Assets.xcassets in Resources */,
-				04DF38B520BDAEE6004DB45D /* star.png in Resources */,
-				04DF38BD20BDBB4D004DB45D /* man.obj in Resources */,
 				0AEE38E720B384250020726D /* Main.storyboard in Resources */,
-				04DF38B920BDB582004DB45D /* Max.obj in Resources */,
-				04DF38B020BDA8E5004DB45D /* smoke.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
