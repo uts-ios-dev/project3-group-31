@@ -10,6 +10,7 @@
 		04DF386720BBC7A6004DB45D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF386620BBC7A6004DB45D /* MapViewController.swift */; };
 		04DF38A720BBD9B8004DB45D /* HealthPlus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04DF38A520BBD9B8004DB45D /* HealthPlus.xcdatamodeld */; };
 		04DF38A920BBDAA6004DB45D /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF38A820BBDAA6004DB45D /* CoreData.swift */; };
+		04DF38AD20BDA7D2004DB45D /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF38AC20BDA7D2004DB45D /* ExerciseViewController.swift */; };
 		0AA293CA20B38E9200C81A5D /* NutritionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA293C920B38E9200C81A5D /* NutritionViewController.swift */; };
 		0AEE38E220B384250020726D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE38E120B384250020726D /* AppDelegate.swift */; };
 		0AEE38E420B384250020726D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE38E320B384250020726D /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 		0AEE38F720B384250020726D /* HealthPlusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE38F620B384250020726D /* HealthPlusTests.swift */; };
 		0AEE390220B384250020726D /* HealthPlusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE390120B384250020726D /* HealthPlusUITests.swift */; };
 		0AEE391020B3874D0020726D /* ActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE390F20B3874D0020726D /* ActivityTableViewController.swift */; };
+		789B0B5D20BD21E800A93936 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 789B0B5C20BD21E800A93936 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,7 @@
 		04DF386620BBC7A6004DB45D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		04DF38A620BBD9B8004DB45D /* HealthPlus.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HealthPlus.xcdatamodel; sourceTree = "<group>"; };
 		04DF38A820BBDAA6004DB45D /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
+		04DF38AC20BDA7D2004DB45D /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		0AA293C920B38E9200C81A5D /* NutritionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionViewController.swift; sourceTree = "<group>"; };
 		0AEE38DE20B384250020726D /* HealthPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEE38E120B384250020726D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +60,8 @@
 		0AEE390120B384250020726D /* HealthPlusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthPlusUITests.swift; sourceTree = "<group>"; };
 		0AEE390320B384250020726D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AEE390F20B3874D0020726D /* ActivityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewController.swift; sourceTree = "<group>"; };
+		789B0B5A20BD21E800A93936 /* HealthPlus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthPlus.entitlements; sourceTree = "<group>"; };
+		789B0B5C20BD21E800A93936 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				789B0B5D20BD21E800A93936 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,6 +105,7 @@
 				0AA293C920B38E9200C81A5D /* NutritionViewController.swift */,
 				0AEE390F20B3874D0020726D /* ActivityTableViewController.swift */,
 				0AEE38E320B384250020726D /* ViewController.swift */,
+				04DF38AC20BDA7D2004DB45D /* ExerciseViewController.swift */,
 				04DF386620BBC7A6004DB45D /* MapViewController.swift */,
 			);
 			path = "View Controllers";
@@ -111,6 +118,7 @@
 				0AEE38F520B384250020726D /* HealthPlusTests */,
 				0AEE390020B384250020726D /* HealthPlusUITests */,
 				0AEE38DF20B384250020726D /* Products */,
+				789B0B5B20BD21E800A93936 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +135,7 @@
 		0AEE38E020B384250020726D /* HealthPlus */ = {
 			isa = PBXGroup;
 			children = (
+				789B0B5A20BD21E800A93936 /* HealthPlus.entitlements */,
 				04DF38AB20BBDAE6004DB45D /* View Controllers */,
 				04DF38AA20BBDAD2004DB45D /* Core Data */,
 				0AEE38E120B384250020726D /* AppDelegate.swift */,
@@ -154,6 +163,14 @@
 				0AEE390320B384250020726D /* Info.plist */,
 			);
 			path = HealthPlusUITests;
+			sourceTree = "<group>";
+		};
+		789B0B5B20BD21E800A93936 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				789B0B5C20BD21E800A93936 /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +242,11 @@
 					0AEE38DD20B384250020726D = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 					0AEE38F120B384250020726D = {
 						CreatedOnToolsVersion = 9.2;
@@ -296,6 +318,7 @@
 				04DF386720BBC7A6004DB45D /* MapViewController.swift in Sources */,
 				04DF38A920BBDAA6004DB45D /* CoreData.swift in Sources */,
 				0AA293CA20B38E9200C81A5D /* NutritionViewController.swift in Sources */,
+				04DF38AD20BDA7D2004DB45D /* ExerciseViewController.swift in Sources */,
 				04DF38A720BBD9B8004DB45D /* HealthPlus.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,7 +489,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HealthPlus/HealthPlus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J2286U64L6;
 				INFOPLIST_FILE = HealthPlus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JH.HealthPlus;
@@ -480,7 +505,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HealthPlus/HealthPlus.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J2286U64L6;
 				INFOPLIST_FILE = HealthPlus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JH.HealthPlus;

@@ -2,8 +2,8 @@
 //  MapViewController.swift
 //  HealthPlus
 //
-//  Created by Tabassum Muntarim on 28/5/18.
-//  Copyright © 2018 Jack Huggart. All rights reserved.
+//  Created by Tabassum Muntarim on 29/5/18.
+//  Copyright © 2018 Alex Tsimboukis. All rights reserved.
 //
 
 import Foundation
@@ -16,16 +16,59 @@ class MapViewController : UIViewController, MKMapViewDelegate, CLLocationManager
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.delegate = self
-        mapView.showsPointsOfInterest = true
-        mapView.showsUserLocation = true
-        locationManager.requestAlwaysAuthorization()
-        locationManager.requestWhenInUseAuthorization()
         
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.startUpdatingLocation()
+        mapView.delegate = self
+        
+        let sourceLocation = CLLocationCoordinate2D(latitude: -33.865143, longitude: 151.209900)//Sydney, NSW Geographic location
+        let destinationLocation = CLLocationCoordinate2D(latitude: -33.865200, longitude: 151.209999)
+        
+        let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
+        let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
+        
+        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
+        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+        
+        let sourceAnnotation = MKPointAnnotation()
+        sourceAnnotation.title = "Start"
+        
+        if let location = sourcePlacemark.location {
+            sourceAnnotation.coordinate = location.coordinate
+        }
+        
+        
+        let destinationAnnotation = MKPointAnnotation()
+        destinationAnnotation.title = "Finish"
+        
+        if let location = destinationPlacemark.location {
+            destinationAnnotation.coordinate = location.coordinate
+        }
+
+        self.mapView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true )
+
+        let directionRequest = MKDirectionsRequest()
+        directionRequest.source = sourceMapItem
+        directionRequest.destination = destinationMapItem
+        directionRequest.transportType = .automobile
+        
+        // Calculate the direction
+        let directions = MKDirections(request: directionRequest)
+        
+        directions.calculate {
+            (response, error) -> Void in
+            
+            guard let response = response else {
+                if let error = error {
+                    print("Error: \(error)")
+                }
+                
+                return
+            }
+            
+            let route = response.routes[0]
+            self.mapView.add((route.polyline), level: MKOverlayLevel.aboveRoads)
+            
+            let rect = route.polyline.boundingMapRect
+            self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
         }
     }
     //Override the Update location function, so that I can act whenever iOS updates the map with my new location
