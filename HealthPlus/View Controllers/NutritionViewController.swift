@@ -14,14 +14,20 @@ class NutritionViewController : UIViewController {
     
     var healthStore : HKHealthStore?
     @IBOutlet weak var heightTxt: UILabel!
+    var height: Double?
     @IBOutlet weak var weightTxt: UILabel!
+    var weight: Double?
     @IBOutlet weak var calTxt: UILabel!
     @IBOutlet weak var ageTxt: UILabel!
     @IBOutlet weak var genderTxt: UILabel!
     
+    @IBAction func calcBtn(_ sender: Any) {
+        calTxt.text = String(calcBMR()) + " calories"
+    }
+    
     override func viewDidLoad() {
         setData()
-        calTxt.text = String(calcBMR()) + " calories"
+        calTxt.text = ""
     }
     
     func setData() {
@@ -45,8 +51,8 @@ class NutritionViewController : UIViewController {
             }
             
             DispatchQueue.main.async {
-                let heightResult = newResults.first?.quantity.doubleValue(for: HKUnit.meter())
-                let newTxt: String = String(format:"%.2f", heightResult!)
+                self.height = newResults.first?.quantity.doubleValue(for: HKUnit.meter())
+                let newTxt: String = String(format:"%.2f", self.height!)
                 self.heightTxt.text = newTxt + " m"
             }
         }
@@ -68,8 +74,8 @@ class NutritionViewController : UIViewController {
             }
             
             DispatchQueue.main.async {
-                let weightResult = newResults.first?.quantity.doubleValue(for: HKUnit.gramUnit(with: .kilo))
-                let newTxt: String = String(format:"%.2f", weightResult!)
+                self.weight = newResults.first?.quantity.doubleValue(for: HKUnit.gramUnit(with: .kilo))
+                let newTxt: String = String(format:"%.2f", self.weight!)
                 self.weightTxt.text = newTxt + " kg"
             }
         }
@@ -105,8 +111,8 @@ class NutritionViewController : UIViewController {
     
     func calcBMR() -> Int {
         let BMR : Double
-        let weightCalc = 10 * Int(weightTxt.text!)!
-        let heightCalc = 6.25 * Double(heightTxt.text!)!
+        let heightCalc = 6.25 * height!
+        let weightCalc = 10 * weight!
         let ageCalc = 5 * Int(ageTxt.text!)!
         var ageModifier = 0.0
         

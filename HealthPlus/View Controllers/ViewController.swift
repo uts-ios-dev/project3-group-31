@@ -35,6 +35,21 @@ class ViewController: UIViewController {
         sampleWeight(weight: weight, forDate: forDate)
     }
     
+    func deleteData() {
+        let predicate = HKQuery.predicateForSamples(withStart: nil, end: nil, options: [])
+        healthStore?.deleteObjects(of: HKObjectType.quantityType(forIdentifier: .height)!, predicate: predicate, withCompletion: {success, amountDeleted, error in
+            print("Deletion success") }
+        )
+
+        healthStore?.deleteObjects(of: HKObjectType.quantityType(forIdentifier: .heartRate)!, predicate: predicate, withCompletion: {success, amountDeleted, error in
+            print("Deletion success") }
+        )
+
+        healthStore?.deleteObjects(of: HKObjectType.quantityType(forIdentifier: .bodyMass)!, predicate: predicate, withCompletion: {success, amountDeleted, error in
+            print("Deletion success") }
+        )
+    }
+    
     func sampleHR(HR: Int, forDate: Date) {
         let quantityType = HKObjectType.quantityType(forIdentifier: HKQuantityTypeIdentifier.heartRate)!
         let heartRate = HKQuantitySample (type: quantityType,
@@ -99,11 +114,13 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let activityScene = segue.destination as? ActivityTableViewController {
-            submitData(HR: 67, height: 1.84, weight: 78.25, forDate: Date())
+            deleteData()
+            submitData(HR: 72, height: 2.17, weight: 103.2, forDate: Date())
             activityScene.healthStore = healthStore
         }
         if let nutritionScene = segue.destination as? NutritionViewController {
-            submitData(HR: 67, height: 1.84, weight: 78.25, forDate: Date())
+            deleteData()
+            submitData(HR: 72, height: 2.17, weight: 103.2, forDate: Date())
             nutritionScene.healthStore = healthStore
         }
     }
