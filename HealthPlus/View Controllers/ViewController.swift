@@ -17,7 +17,8 @@ class ViewController: UIViewController {
                                 HKObjectType.quantityType(forIdentifier: .heartRate)!,
                                 HKObjectType.quantityType(forIdentifier: .height)!,
                                 HKObjectType.quantityType(forIdentifier: .bodyMass)!,
-                                HKObjectType.characteristicType(forIdentifier: .dateOfBirth)!])
+                                HKObjectType.characteristicType(forIdentifier: .dateOfBirth)!,
+                                HKObjectType.characteristicType(forIdentifier: .biologicalSex)!])
         
         healthStore!.requestAuthorization(toShare: allDataTypes as? Set<HKSampleType>, read: allDataTypes) { (success, error) in
             if !success {
@@ -98,8 +99,8 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let activityScene = segue.destination as? ActivityTableViewController {
-            activityScene.healthStore = healthStore
             submitData(HR: 67, height: 1.84, weight: 78.25, forDate: Date())
+            activityScene.healthStore = healthStore
         }
         if let nutritionScene = segue.destination as? NutritionViewController {
             submitData(HR: 67, height: 1.84, weight: 78.25, forDate: Date())

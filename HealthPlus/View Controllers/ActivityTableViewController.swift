@@ -31,23 +31,34 @@ class ActivityTableViewController : UITableViewController, MKMapViewDelegate, CL
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
         }
+        
+        setHeartRate()
+    }
+    
+    func setHeartRate() {
         let hrType = HKObjectType.quantityType(forIdentifier: .heartRate)
         
         let hrQuery = HKSampleQuery(sampleType: hrType!,
-                                       predicate: nil,
-                                       limit: 1,
-                                       sortDescriptors: nil)
+                                        predicate: nil,
+                                        limit: 1,
+                                        sortDescriptors: nil)
         { (query:HKSampleQuery, results:[HKSample]?, error:Error?) -> Void in
             
-            guard error == nil else { print("error"); return }
+            guard let newResults = results as? [HKQuantitySample] else {
+                fatalError("error");
+            }
             
             DispatchQueue.main.async {
-                self.bpmTxt.text = results?.first.debugDescription
+                let hrResult = newResults.first?.quantity.doubleValue(for: (HKUnit.count()).unitDivided(by: HKUnit.minute()))
+                let newTxt: String = String(Int(hrResult!))
+                self.bpmTxt.text = newTxt + " bpm"
             }
         }
         
-        healthStore?.execute(hrQuery)
+        healthStore!.execute(hrQuery)
     }
+    
+    
     //Override the Update location function, so that I can act whenever iOS updates the map with my new location
     func locationManager(_ _manager : CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last!

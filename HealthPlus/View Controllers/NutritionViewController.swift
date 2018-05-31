@@ -21,12 +21,14 @@ class NutritionViewController : UIViewController {
     
     override func viewDidLoad() {
         setData()
-        calTxt.text = String(calcBMR())
+        calTxt.text = String(calcBMR()) + " calories"
     }
     
     func setData() {
         setHeight()
         setWeight()
+        setAge()
+        setGender()
     }
     
     func setHeight() {
@@ -45,7 +47,7 @@ class NutritionViewController : UIViewController {
             DispatchQueue.main.async {
                 let heightResult = newResults.first?.quantity.doubleValue(for: HKUnit.meter())
                 let newTxt: String = String(format:"%.2f", heightResult!)
-                self.heightTxt.text = newTxt
+                self.heightTxt.text = newTxt + " m"
             }
         }
         
@@ -68,11 +70,37 @@ class NutritionViewController : UIViewController {
             DispatchQueue.main.async {
                 let weightResult = newResults.first?.quantity.doubleValue(for: HKUnit.gramUnit(with: .kilo))
                 let newTxt: String = String(format:"%.2f", weightResult!)
-                self.weightTxt.text = newTxt
+                self.weightTxt.text = newTxt + " kg"
             }
         }
         
         healthStore!.execute(weightQuery)
+    }
+    
+    func setAge() {
+        do {
+            let dateOfBirth = try healthStore!.dateOfBirthComponents()
+            let now = Date()
+            let ageComponents = Calendar.current.dateComponents([.year], from: dateOfBirth.date!, to: now)
+            let age = ageComponents.year
+            ageTxt.text = String(age!)
+            
+        } catch {
+            print("Error fetching DOB")
+        }
+    }
+    
+    func setGender() {
+        do {
+            let gender = try healthStore!.biologicalSex().biologicalSex
+            if gender == HKBiologicalSex.male {
+                genderTxt.text = "Male"
+            } else if gender == HKBiologicalSex.female {
+                genderTxt.text = "Female"
+            }
+        } catch {
+            print("Error fetching sex")
+        }
     }
     
     func calcBMR() -> Int {
@@ -82,9 +110,9 @@ class NutritionViewController : UIViewController {
         let ageCalc = 5 * Int(ageTxt.text!)!
         var ageModifier = 0.0
         
-        if genderTxt.text == "M" {
+        if genderTxt.text == "Male" {
             ageModifier = 5.0
-        } else if genderTxt.text == "F" {
+        } else if genderTxt.text == "Female" {
             ageModifier = -161.0
         }
         
