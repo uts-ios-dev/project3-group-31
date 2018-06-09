@@ -335,7 +335,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
                             <constraint firstAttribute="bottom" secondItem="zJM-6f-0aw" secondAttribute="bottom" id="1g1-lz-WPw"/>
                             <constraint firstItem="zJM-6f-0aw" firstAttribute="trailing" secondItem="hY2-Rz-eke" secondAttribute="trailing" id="RHa-dm-Q2w"/>
                             <constraint firstItem="zJM-6f-0aw" firstAttribute="leading" secondItem="hY2-Rz-eke" secondAttribute="leading" id="TWk-NR-Kj5"/>
@@ -349,13 +348,10 @@
 >>>>>>> 5f7e18276fa0d1132c79837a2ff7b05793276ea6
 =======
 >>>>>>> 033c2ad1bc2b7d3c09b0fe9f08bc82a244d1e4fe
-=======
->>>>>>> e44b9463fcc417a15504195737801c8bf75f8fb4
                             <constraint firstItem="h1k-qW-0hg" firstAttribute="leading" secondItem="jrg-WL-icS" secondAttribute="leading" id="AKa-b1-Mti"/>
                             <constraint firstItem="h1k-qW-0hg" firstAttribute="top" secondItem="DnS-Fd-10R" secondAttribute="top" id="Hbb-rI-xZz"/>
                             <constraint firstItem="h1k-qW-0hg" firstAttribute="bottom" secondItem="DnS-Fd-10R" secondAttribute="bottom" id="aQl-9a-Y3g"/>
                             <constraint firstAttribute="trailing" secondItem="h1k-qW-0hg" secondAttribute="trailing" id="np0-de-Jwe"/>
-<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> 5f7e18276fa0d1132c79837a2ff7b05793276ea6
@@ -363,8 +359,7 @@
 >>>>>>> 5f7e18276fa0d1132c79837a2ff7b05793276ea6
 =======
 >>>>>>> 033c2ad1bc2b7d3c09b0fe9f08bc82a244d1e4fe
-=======
->>>>>>> e44b9463fcc417a15504195737801c8bf75f8fb4
+
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DnS-Fd-10R"/>
                     </view>
