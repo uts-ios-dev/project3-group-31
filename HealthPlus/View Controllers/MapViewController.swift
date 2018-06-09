@@ -77,8 +77,6 @@ class MapViewController : UIViewController, MKMapViewDelegate, CLLocationManager
         //Set to the whole area of the map shows 500 by 500
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, 500, 500)
         mapView.setRegion(coordinateRegion, animated: true)
-        //Set my current location using a 2d point so I can being drawing with it.
-        let currLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         
         locationManager.stopUpdatingLocation()
     }
