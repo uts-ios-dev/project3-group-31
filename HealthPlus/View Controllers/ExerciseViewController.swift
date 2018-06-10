@@ -17,7 +17,7 @@ class ExerciseViewController : UIViewController {
         super.viewDidLoad()
         
         let scene = SCNScene()
-//        let sceneView = self.view as! SCNView
+        let sceneView = self.view as! SCNView
         let cameraNode = SCNNode()
         cameraNode.position = SCNVector3(x: 0, y: 0, z: 10)
         let lightNode = SCNNode()
@@ -28,7 +28,7 @@ class ExerciseViewController : UIViewController {
         lightNode.position = SCNVector3(x: 0, y: -4, z: 1)
         scene.rootNode.addChildNode(lightNode)
         
-    //    let stars = SCNParticleSystem(named: "starParticle.scnp", inDirectory: nil)!
+        let stars = SCNParticleSystem(named: "starParticle.scnp", inDirectory: nil)!
         let human = SCNScene(named: "man.obj")!
         let humanNode = SCNNode()
         for child in human.rootNode.childNodes {

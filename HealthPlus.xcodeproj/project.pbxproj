@@ -21,6 +21,7 @@
 		0AEE390220B384250020726D /* HealthPlusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE390120B384250020726D /* HealthPlusUITests.swift */; };
 		0AEE391020B3874D0020726D /* ActivityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE390F20B3874D0020726D /* ActivityTableViewController.swift */; };
 		789B0B5D20BD21E800A93936 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 789B0B5C20BD21E800A93936 /* HealthKit.framework */; };
+		BCCCFC9B20CBCB030082015E /* DetialsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCCCFC9A20CBCB030082015E /* DetialsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		0AEE390F20B3874D0020726D /* ActivityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewController.swift; sourceTree = "<group>"; };
 		789B0B5A20BD21E800A93936 /* HealthPlus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HealthPlus.entitlements; sourceTree = "<group>"; };
 		789B0B5C20BD21E800A93936 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		BCCCFC9A20CBCB030082015E /* DetialsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetialsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				0AA293C920B38E9200C81A5D /* NutritionViewController.swift */,
+				BCCCFC9A20CBCB030082015E /* DetialsViewController.swift */,
 				0AEE390F20B3874D0020726D /* ActivityTableViewController.swift */,
 				0AEE38E320B384250020726D /* ViewController.swift */,
 				04DF38AC20BDA7D2004DB45D /* ExerciseViewController.swift */,
@@ -317,6 +320,7 @@
 				0AEE391020B3874D0020726D /* ActivityTableViewController.swift in Sources */,
 				04DF386720BBC7A6004DB45D /* MapViewController.swift in Sources */,
 				04DF38A920BBDAA6004DB45D /* CoreData.swift in Sources */,
+				BCCCFC9B20CBCB030082015E /* DetialsViewController.swift in Sources */,
 				0AA293CA20B38E9200C81A5D /* NutritionViewController.swift in Sources */,
 				04DF38AD20BDA7D2004DB45D /* ExerciseViewController.swift in Sources */,
 				04DF38A720BBD9B8004DB45D /* HealthPlus.xcdatamodeld in Sources */,

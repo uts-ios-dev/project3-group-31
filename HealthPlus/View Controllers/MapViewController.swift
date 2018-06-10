@@ -1,95 +1,69 @@
-//
-//  MapViewController.swift
-//  HealthPlus
-//
-//  Created by Tabassum Muntarim on 29/5/18.
-//  Copyright © 2018 Alex Tsimboukis. All rights reserved.
-//
-
-import Foundation
-import UIKit
-import MapKit
-
-
-class MapViewController : UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
-    let locationManager = CLLocationManager()
+    //
+    //  MapViewController.swift
+    //  HealthPlus
+    //
+    //  Created by Tabassum Muntarim on 29/5/18.
+    //  Copyright © 2018 Alex Tsimboukis. All rights reserved.
+    //
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    import Foundation
+    import UIKit
+    import MapKit
+    
+    class MapViewController : UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+        let locationManager = CLLocationManager()
         
-        mapView.delegate = self
+        @IBOutlet weak var theMap: MKMapView!
+        @IBOutlet weak var theLabel: UILabel!
         
-        let sourceLocation = CLLocationCoordinate2D(latitude: -33.865143, longitude: 151.209900)//Sydney, NSW Geographic location
-        let destinationLocation = CLLocationCoordinate2D(latitude: -33.865200, longitude: 151.209999)
+        var manager:CLLocationManager!
+        var myLocations: [CLLocation] = []
         
-        let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
-        let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
-        
-        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
-        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
-        
-        let sourceAnnotation = MKPointAnnotation()
-        sourceAnnotation.title = "Start"
-        
-        if let location = sourcePlacemark.location {
-            sourceAnnotation.coordinate = location.coordinate
-        }
-        
-        
-        let destinationAnnotation = MKPointAnnotation()
-        destinationAnnotation.title = "Finish"
-        
-        if let location = destinationPlacemark.location {
-            destinationAnnotation.coordinate = location.coordinate
-        }
-
-        self.mapView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true )
-
-        let directionRequest = MKDirectionsRequest()
-        directionRequest.source = sourceMapItem
-        directionRequest.destination = destinationMapItem
-        directionRequest.transportType = .automobile
-        
-        // Calculate the direction
-        let directions = MKDirections(request: directionRequest)
-        
-        directions.calculate {
-            (response, error) -> Void in
+        override func viewDidLoad() {
+            super.viewDidLoad()
             
-            guard let response = response else {
-                if let error = error {
-                    print("Error: \(error)")
-                }
+            //Setup our Location Manager
+            manager = CLLocationManager()
+            manager.delegate = self
+            manager.desiredAccuracy = kCLLocationAccuracyBest
+            manager.requestAlwaysAuthorization()
+            manager.startUpdatingLocation()
+            
+            //Setup our Map View
+            theMap.delegate = self
+            theMap.mapType = MKMapType.satellite
+            theMap.showsUserLocation = true
+        }
+        
+        func locationManager(manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
+            theLabel.text = "\(locations[0])"
+            myLocations.append(locations[0] as! CLLocation)
+            
+            let spanX = 0.007
+            let spanY = 0.007
+            var newRegion = MKCoordinateRegion(center: theMap.userLocation.coordinate, span: MKCoordinateSpanMake(spanX, spanY))
+            theMap.setRegion(newRegion, animated: true)
+            
+            if (myLocations.count > 1){
+                var sourceIndex = myLocations.count - 1
+                var destinationIndex = myLocations.count - 2
                 
-                return
+                let c1 = myLocations[sourceIndex].coordinate
+                let c2 = myLocations[destinationIndex].coordinate
+                var a = [c1, c2]
+                var polyline = MKPolyline(coordinates: &a, count: a.count)
+                theMap.add(polyline)
             }
-            
-            let route = response.routes[0]
-            self.mapView.add((route.polyline), level: MKOverlayLevel.aboveRoads)
-            
-            let rect = route.polyline.boundingMapRect
-            self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
         }
-    }
-    //Override the Update location function, so that I can act whenever iOS updates the map with my new location
-    func locationManager(_ _manager : CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last!
-        //Set to the whole area of the map shows 500 by 500
-        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, 500, 500)
-        mapView.setRegion(coordinateRegion, animated: true)
         
-        locationManager.stopUpdatingLocation()
-    }
-    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-        let renderer = MKPolylineRenderer(overlay: overlay)
-        renderer.strokeColor = UIColor.red
-        renderer.lineWidth = 4.0
-        
-        return renderer
-    }
-    
-    @IBOutlet weak var mapView: MKMapView!
-    
-    
-
+        func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+            
+            if overlay is MKPolyline {
+                var polylineRenderer = MKPolylineRenderer(overlay: overlay)
+                polylineRenderer.strokeColor = UIColor.blue
+                polylineRenderer.lineWidth = 4
+                return polylineRenderer
+            }
+            return nil
+        }
 }

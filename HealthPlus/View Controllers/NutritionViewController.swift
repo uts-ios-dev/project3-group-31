@@ -4,6 +4,7 @@
 //
 //  Created by Jack Huggart on 22/5/18.
 //  Copyright © 2018 Jack Huggart. All rights reserved.
+//  Edited by Alexander Tsimboukis
 //
 
 import HealthKit
@@ -14,23 +15,64 @@ class NutritionViewController : UIViewController {
     
     var healthStore : HKHealthStore?
     @IBOutlet weak var heightTxt: UILabel!
-    var height: Double?
+    var height: Double? = nil
     @IBOutlet weak var weightTxt: UILabel!
-    var weight: Double?
+    var weight: Double? = nil
     @IBOutlet weak var calTxt: UILabel!
     @IBOutlet weak var ageTxt: UILabel!
     @IBOutlet weak var genderTxt: UILabel!
+    
+    
+    var heightCalc = 0.0
+    var weightCalc = 0.0
+    var ageCalc = 0
+    var ageModifier = 0.0
+    
+    var newHeight:String?
+    var newWeight:String?
+    var newAge:String?
+    var newGender:String?
+    
+
     
     @IBAction func calcBtn(_ sender: Any) {
         calTxt.text = String(calcBMR()) + " calories"
     }
     
     override func viewDidLoad() {
+        getData()
         setData()
         calTxt.text = ""
     }
     
+    
+    func getData()
+    {
+        //if the user updates data manually
+        
+        if let recievedHeight = newHeight
+        {
+            heightTxt.text = recievedHeight
+        }
+        if let recievedWeight = newWeight
+        {
+            weightTxt.text = recievedWeight
+        }
+        if let recievedAge = newAge
+        {
+            ageTxt.text = recievedAge
+        }
+        if let recievedGender = newGender
+        {
+            genderTxt.text = recievedGender
+        }
+        
+
+    }
+    
+    
     func setData() {
+        //get data from hkit
         setHeight()
         setWeight()
         setAge()
@@ -51,9 +93,12 @@ class NutritionViewController : UIViewController {
             }
             
             DispatchQueue.main.async {
-                self.height = newResults.first?.quantity.doubleValue(for: HKUnit.meter())
-                let newTxt: String = String(format:"%.2f", self.height!)
-                self.heightTxt.text = newTxt + " m"
+            self.height = newResults.first?.quantity.doubleValue(for: HKUnit.meter())
+              if (self.height != nil) {
+                if let newTxt: String = String(format:"%.2f", self.height!) {
+                    self.heightTxt.text = newTxt + " m"
+                  }
+               }
             }
         }
         
@@ -75,8 +120,13 @@ class NutritionViewController : UIViewController {
             
             DispatchQueue.main.async {
                 self.weight = newResults.first?.quantity.doubleValue(for: HKUnit.gramUnit(with: .kilo))
-                let newTxt: String = String(format:"%.2f", self.weight!)
-                self.weightTxt.text = newTxt + " kg"
+                if self.weight != nil
+                {
+                    if let newTxt: String = String(format:"%.2f", self.weight!)
+                    {
+                        self.weightTxt.text = newTxt + " kg"
+                    }
+                }
             }
         }
         
@@ -111,10 +161,16 @@ class NutritionViewController : UIViewController {
     
     func calcBMR() -> Int {
         let BMR : Double
-        let heightCalc = 6.25 * height!
-        let weightCalc = 10 * weight!
-        let ageCalc = 5 * Int(ageTxt.text!)!
-        var ageModifier = 0.0
+        
+        if (height != nil) {
+            heightCalc = 6.25 * height!
+        }
+        if (weight != nil){
+            weightCalc = 10 * weight!
+        }
+        if (ageTxt.text != nil) {
+            ageCalc = 5 * Int(ageTxt.text!)!
+        }
         
         if genderTxt.text == "Male" {
             ageModifier = 5.0
@@ -122,7 +178,7 @@ class NutritionViewController : UIViewController {
             ageModifier = -161.0
         }
         
-        BMR = Double(weightCalc) + heightCalc - Double(ageCalc) + ageModifier
+        BMR = Double(weightCalc) + Double(heightCalc) - Double(ageCalc) + ageModifier
         
         return Int(BMR)
     }
