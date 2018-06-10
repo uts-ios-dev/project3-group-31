@@ -32,7 +32,7 @@ class NutritionViewController : UIViewController {
     var newWeight:String?
     var newAge:String?
     var newGender:String?
-    
+    var manual_update = false
 
     
     @IBAction func calcBtn(_ sender: Any) {
@@ -41,18 +41,21 @@ class NutritionViewController : UIViewController {
     
     override func viewDidLoad() {
         getData()
-        setData()
+        if manual_update == false {
+            setData()
+        }
         calTxt.text = ""
     }
     
     
     func getData()
     {
-        //if the user updates data manually
         
+        //if the user updates data manually
         if let recievedHeight = newHeight
         {
             heightTxt.text = recievedHeight
+            manual_update = true
         }
         if let recievedWeight = newWeight
         {
@@ -102,7 +105,10 @@ class NutritionViewController : UIViewController {
             }
         }
         
-        healthStore!.execute(heightQuery)
+        if healthStore != nil {
+              healthStore!.execute(heightQuery)
+        }
+
     }
     
     func setWeight() {
@@ -129,8 +135,9 @@ class NutritionViewController : UIViewController {
                 }
             }
         }
-        
-        healthStore!.execute(weightQuery)
+        if healthStore != nil {
+            healthStore!.execute(weightQuery)
+        }
     }
     
     func setAge() {

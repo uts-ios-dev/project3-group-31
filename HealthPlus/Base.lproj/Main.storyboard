@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R68-V5-bg5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R68-V5-bg5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -67,7 +67,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Es-Mm-b8U">
-                                <rect key="frame" x="117" y="443" width="102" height="30"/>
+                                <rect key="frame" x="121" y="443" width="102" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Update Detials"/>
                                 <connections>
@@ -84,10 +84,10 @@
             </objects>
             <point key="canvasLocation" x="8.8000000000000007" y="-81.409295352323838"/>
         </scene>
-        <!--Detials View Controller-->
+        <!--Details View Controller-->
         <scene sceneID="gmK-Hh-t3E">
             <objects>
-                <viewController id="9w6-KT-1G8" customClass="DetialsViewController" sceneMemberID="viewController">
+                <viewController id="9w6-KT-1G8" customClass="DetailsViewController" customModule="HealthPlus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mWV-EN-pxc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -167,11 +167,11 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="kxM-tx-Muy"/>
                     </view>
+                    <navigationItem key="navigationItem" id="QSp-SV-cG5"/>
                     <connections>
                         <outlet property="ageLabel" destination="asi-46-f13" id="MKT-yG-LRg"/>
                         <outlet property="genderLabel" destination="Ac2-Kd-Gta" id="eXM-ue-7Ue"/>
                         <outlet property="heightLabel" destination="tdH-92-lFj" id="CWX-vJ-y4V"/>
-                        <outlet property="weight" destination="tdH-92-lFj" id="ey7-0M-whV"/>
                         <outlet property="weightLabel" destination="gbS-Db-oAx" id="H80-od-ICy"/>
                     </connections>
                 </viewController>
@@ -484,6 +484,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hmr-p5-EUx"/>
+        <segue reference="wkF-Ji-WiV"/>
     </inferredMetricsTieBreakers>
 </document>
