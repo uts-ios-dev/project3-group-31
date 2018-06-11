@@ -10,7 +10,6 @@
 		04DF386720BBC7A6004DB45D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF386620BBC7A6004DB45D /* MapViewController.swift */; };
 		04DF38A720BBD9B8004DB45D /* HealthPlus.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04DF38A520BBD9B8004DB45D /* HealthPlus.xcdatamodeld */; };
 		04DF38A920BBDAA6004DB45D /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF38A820BBDAA6004DB45D /* CoreData.swift */; };
-		04DF38AD20BDA7D2004DB45D /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DF38AC20BDA7D2004DB45D /* ExerciseViewController.swift */; };
 		0AA293CA20B38E9200C81A5D /* NutritionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA293C920B38E9200C81A5D /* NutritionViewController.swift */; };
 		0AEE38E220B384250020726D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE38E120B384250020726D /* AppDelegate.swift */; };
 		0AEE38E420B384250020726D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE38E320B384250020726D /* ViewController.swift */; };
@@ -45,7 +44,6 @@
 		04DF386620BBC7A6004DB45D /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		04DF38A620BBD9B8004DB45D /* HealthPlus.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HealthPlus.xcdatamodel; sourceTree = "<group>"; };
 		04DF38A820BBDAA6004DB45D /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
-		04DF38AC20BDA7D2004DB45D /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
 		0AA293C920B38E9200C81A5D /* NutritionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionViewController.swift; sourceTree = "<group>"; };
 		0AEE38DE20B384250020726D /* HealthPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HealthPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AEE38E120B384250020726D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 				0AA293C920B38E9200C81A5D /* NutritionViewController.swift */,
 				0AEE390F20B3874D0020726D /* ActivityTableViewController.swift */,
 				0AEE38E320B384250020726D /* ViewController.swift */,
-				04DF38AC20BDA7D2004DB45D /* ExerciseViewController.swift */,
 				04DF386620BBC7A6004DB45D /* MapViewController.swift */,
 			);
 			path = "View Controllers";
@@ -321,7 +318,6 @@
 				04DF386720BBC7A6004DB45D /* MapViewController.swift in Sources */,
 				04DF38A920BBDAA6004DB45D /* CoreData.swift in Sources */,
 				0AA293CA20B38E9200C81A5D /* NutritionViewController.swift in Sources */,
-				04DF38AD20BDA7D2004DB45D /* ExerciseViewController.swift in Sources */,
 				04DF38A720BBD9B8004DB45D /* HealthPlus.xcdatamodeld in Sources */,
 				78697F9120CE21EC00948906 /* DetailsViewController.swift in Sources */,
 			);

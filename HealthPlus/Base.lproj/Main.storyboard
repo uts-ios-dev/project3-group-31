@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R68-V5-bg5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R68-V5-bg5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -49,14 +48,6 @@
                                 <state key="normal" title="Nutrition Tracker"/>
                                 <connections>
                                     <segue destination="kZF-jX-z2t" kind="show" id="hmr-p5-EUx"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUd-XF-LQ0">
-                                <rect key="frame" x="114" y="405" width="109" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Exercise Library"/>
-                                <connections>
-                                    <segue destination="uoY-Ap-MfY" kind="show" id="vbK-jM-PQw"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Health+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dI-JN-b59">
@@ -379,81 +370,8 @@
             </objects>
             <point key="canvasLocation" x="996" y="-509"/>
         </scene>
-        <!--ExerciseViewController-->
-        <scene sceneID="pzt-EQ-J8a">
-            <objects>
-                <viewController title="ExerciseViewController" id="uoY-Ap-MfY" customClass="ExerciseViewController" customModule="HealthPlus" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jrg-WL-icS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="h1k-qW-0hg">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <subviews>
-                                    <sceneKitView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="As4-mo-WUB">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="223.5"/>
-                                    </sceneKitView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="t5h-QI-QPL">
-                                        <rect key="frame" x="0.0" y="223.5" width="375" height="379.5"/>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="t5h-QI-QPL" firstAttribute="top" secondItem="As4-mo-WUB" secondAttribute="bottom" id="V0B-Cf-iuI"/>
-                                    <constraint firstItem="t5h-QI-QPL" firstAttribute="height" secondItem="As4-mo-WUB" secondAttribute="height" multiplier="1.7" id="ce4-ko-CXP"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="h1k-qW-0hg" firstAttribute="leading" secondItem="jrg-WL-icS" secondAttribute="leading" id="AKa-b1-Mti"/>
-                            <constraint firstItem="h1k-qW-0hg" firstAttribute="top" secondItem="DnS-Fd-10R" secondAttribute="top" id="Hbb-rI-xZz"/>
-                            <constraint firstItem="h1k-qW-0hg" firstAttribute="bottom" secondItem="DnS-Fd-10R" secondAttribute="bottom" id="aQl-9a-Y3g"/>
-                            <constraint firstAttribute="trailing" secondItem="h1k-qW-0hg" secondAttribute="trailing" id="np0-de-Jwe"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="DnS-Fd-10R"/>
-                    </view>
-                    <connections>
-                        <outlet property="sceneView" destination="As4-mo-WUB" id="StM-GS-no8"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9cy-Ag-pf1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2065" y="-505"/>
-        </scene>
-        <!--Table View Controller-->
-        <scene sceneID="vli-9v-C6f">
-            <objects>
-                <tableViewController id="SGZ-gi-soL" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jpf-ii-XVs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <sceneKitView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="DdV-Et-r4c">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="223.5"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </sceneKitView>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="T1P-oQ-Bdh">
-                                <rect key="frame" x="0.0" y="251.5" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T1P-oQ-Bdh" id="Oxm-EG-XSL">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="SGZ-gi-soL" id="Wyr-6V-YaH"/>
-                            <outlet property="delegate" destination="SGZ-gi-soL" id="hvG-Il-Cmx"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GwF-Tq-cCX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2079" y="150"/>
-        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wkF-Ji-WiV"/>
+        <segue reference="hmr-p5-EUx"/>
     </inferredMetricsTieBreakers>
 </document>
