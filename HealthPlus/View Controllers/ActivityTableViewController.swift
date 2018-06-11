@@ -143,7 +143,6 @@ class ActivityTableViewController : UITableViewController, MKMapViewDelegate, CL
         if calories != nil{
             
             caloriesLabel.text = String(Int(calories!))
-            caloriesLabel.text = String("jokes")
             
         }
         
