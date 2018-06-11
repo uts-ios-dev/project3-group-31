@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R68-V5-bg5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="R68-V5-bg5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -49,14 +48,6 @@
                                 <state key="normal" title="Nutrition Tracker"/>
                                 <connections>
                                     <segue destination="kZF-jX-z2t" kind="show" id="hmr-p5-EUx"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUd-XF-LQ0">
-                                <rect key="frame" x="114" y="405" width="109" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Exercise Library"/>
-                                <connections>
-                                    <segue destination="uoY-Ap-MfY" kind="show" id="vbK-jM-PQw"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Health+" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dI-JN-b59">
@@ -357,6 +348,7 @@
             </objects>
             <point key="canvasLocation" x="996" y="-509"/>
         </scene>
+<<<<<<< HEAD
         <!--ExerciseViewController-->
         <scene sceneID="pzt-EQ-J8a">
             <objects>
@@ -430,6 +422,8 @@
             </objects>
             <point key="canvasLocation" x="2098" y="86"/>
         </scene>
+=======
+>>>>>>> a8d07ded82e3829eb41cc9d7c196e46d1a340562
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="hmr-p5-EUx"/>

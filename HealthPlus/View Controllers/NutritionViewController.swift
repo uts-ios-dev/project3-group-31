@@ -22,11 +22,11 @@ class NutritionViewController : UIViewController {
     @IBOutlet weak var ageTxt: UILabel!
     @IBOutlet weak var genderTxt: UILabel!
     
-    
     var heightCalc = 0.0
     var weightCalc = 0.0
     var ageCalc = 0
     var ageModifier = 0.0
+<<<<<<< HEAD
     
     var newHeight:String?
     var newWeight:String?
@@ -34,6 +34,8 @@ class NutritionViewController : UIViewController {
     var newGender:String?
     
     var manual_update = false
+=======
+>>>>>>> a8d07ded82e3829eb41cc9d7c196e46d1a340562
 
     
     @IBAction func calcBtn(_ sender: Any) {
@@ -41,40 +43,9 @@ class NutritionViewController : UIViewController {
     }
     
     override func viewDidLoad() {
-        getData()
-        if manual_update == false {
-            setData()
-        }
         setData()
         calTxt.text = ""
     }
-    
-    
-    func getData()
-    {
-        
-        //if the user updates data manually
-        if let recievedHeight = newHeight
-        {
-            heightTxt.text = recievedHeight
-            manual_update = true
-        }
-        if let recievedWeight = newWeight
-        {
-            weightTxt.text = recievedWeight
-        }
-        if let recievedAge = newAge
-        {
-            ageTxt.text = recievedAge
-        }
-        if let recievedGender = newGender
-        {
-            genderTxt.text = recievedGender
-        }
-        
-
-    }
-    
     
     func setData() {
         //get data from hkit
