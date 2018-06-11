@@ -125,10 +125,7 @@ class ActivityTableViewController : UITableViewController, MKMapViewDelegate, CL
     //Override the Update location function, so that I can act whenever iOS updates the map with my new location
     func locationManager(_ _manager : CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        let start = locations.first!
-        print(start)
         let location = locations.last!
-        print(location)
 
         //Set to the whole area of the map shows 500 by 500
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, 500, 500)
@@ -137,7 +134,7 @@ class ActivityTableViewController : UITableViewController, MKMapViewDelegate, CL
         
         let currLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         
-        //speedLabel.text = "\(location.speed)"
+        speedLabel.text = "\(location.speed)"
         
         locationManager.stopUpdatingLocation()
     }
