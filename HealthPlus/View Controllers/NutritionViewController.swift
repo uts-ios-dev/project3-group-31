@@ -26,7 +26,6 @@ class NutritionViewController : UIViewController {
     var weightCalc = 0.0
     var ageCalc = 0
     var ageModifier = 0.0
-<<<<<<< HEAD
     
     var newHeight:String?
     var newWeight:String?
@@ -34,8 +33,6 @@ class NutritionViewController : UIViewController {
     var newGender:String?
     
     var manual_update = false
-=======
->>>>>>> a8d07ded82e3829eb41cc9d7c196e46d1a340562
 
     
     @IBAction func calcBtn(_ sender: Any) {
