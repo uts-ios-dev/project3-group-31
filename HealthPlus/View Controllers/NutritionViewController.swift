@@ -40,19 +40,15 @@ class NutritionViewController : UIViewController {
     }
     
     override func viewDidLoad() {
-<<<<<<< HEAD
         getData()
         if manual_update == false {
             setData()
         }
-=======
         setData()
->>>>>>> 1bf447da112485bc6608c3e136635e7d4483ee86
         calTxt.text = ""
     }
     
     
-<<<<<<< HEAD
     func getData()
     {
         
@@ -79,8 +75,6 @@ class NutritionViewController : UIViewController {
     }
     
     
-=======
->>>>>>> 1bf447da112485bc6608c3e136635e7d4483ee86
     func setData() {
         //get data from hkit
         setHeight()
