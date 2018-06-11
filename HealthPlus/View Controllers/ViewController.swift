@@ -11,6 +11,7 @@ import HealthKit
 
 class ViewController: UIViewController {
     var healthStore : HKHealthStore?
+    var isFirstHomeVisit = true     //Ensures the sample data initialised here does not conflict with user entered data later on
     
     func requestPerms() {
         let allDataTypes = Set([HKObjectType.quantityType(forIdentifier: .distanceWalkingRunning)!,
@@ -114,14 +115,28 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let activityScene = segue.destination as? ActivityTableViewController {
-            deleteData()
-            submitData(HR: 72, height: 2.17, weight: 103.2, forDate: Date())
+            if isFirstHomeVisit {
+                deleteData()
+                submitData(HR: 72, height: 2.17, weight: 103.2, forDate: Date())
+                isFirstHomeVisit = false
+            }
             activityScene.healthStore = healthStore
         }
         if let nutritionScene = segue.destination as? NutritionViewController {
-            deleteData()
-            submitData(HR: 72, height: 2.17, weight: 103.2, forDate: Date())
+            if isFirstHomeVisit {
+                deleteData()
+                submitData(HR: 72, height: 2.17, weight: 103.2, forDate: Date())
+                isFirstHomeVisit = false
+            }
             nutritionScene.healthStore = healthStore
+        }
+        if let detailsScene = segue.destination as? DetailsViewController {
+            if isFirstHomeVisit {
+                deleteData()
+                submitData(HR: 72, height: 2.17, weight: 103.2, forDate: Date())
+                isFirstHomeVisit = false
+            }
+            detailsScene.healthStore = healthStore
         }
     }
 }

@@ -40,34 +40,8 @@ class NutritionViewController : UIViewController {
     }
     
     override func viewDidLoad() {
-        getData()
         setData()
         calTxt.text = ""
-    }
-    
-    
-    func getData()
-    {
-        //if the user updates data manually
-        
-        if let recievedHeight = newHeight
-        {
-            heightTxt.text = recievedHeight
-        }
-        if let recievedWeight = newWeight
-        {
-            weightTxt.text = recievedWeight
-        }
-        if let recievedAge = newAge
-        {
-            ageTxt.text = recievedAge
-        }
-        if let recievedGender = newGender
-        {
-            genderTxt.text = recievedGender
-        }
-        
-
     }
     
     
@@ -163,7 +137,7 @@ class NutritionViewController : UIViewController {
         let BMR : Double
         
         if (height != nil) {
-            heightCalc = 6.25 * height!
+            heightCalc = 6.25 * (height! * 100)
         }
         if (weight != nil){
             weightCalc = 10 * weight!
