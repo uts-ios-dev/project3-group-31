@@ -141,15 +141,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="QSp-SV-cG5"/>
                     <connections>
-<<<<<<< HEAD
-                        <outlet property="ageLabel" destination="asi-46-f13" id="MKT-yG-LRg"/>
-                        <outlet property="genderLabel" destination="Ac2-Kd-Gta" id="eXM-ue-7Ue"/>
-                        <outlet property="heightLabel" destination="tdH-92-lFj" id="CWX-vJ-y4V"/>
-                        <outlet property="weightLabel" destination="gbS-Db-oAx" id="H80-od-ICy"/>
-=======
                         <outlet property="heightTxt" destination="t3y-9Z-Vc7" id="4A8-0Y-jby"/>
                         <outlet property="weightTxt" destination="8AY-xu-sk9" id="qGB-3C-pko"/>
->>>>>>> 1bf447da112485bc6608c3e136635e7d4483ee86
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4JL-wG-id2" userLabel="First Responder" sceneMemberID="firstResponder"/>
