@@ -40,14 +40,19 @@ class NutritionViewController : UIViewController {
     }
     
     override func viewDidLoad() {
+<<<<<<< HEAD
         getData()
         if manual_update == false {
             setData()
         }
+=======
+        setData()
+>>>>>>> 1bf447da112485bc6608c3e136635e7d4483ee86
         calTxt.text = ""
     }
     
     
+<<<<<<< HEAD
     func getData()
     {
         
@@ -74,6 +79,8 @@ class NutritionViewController : UIViewController {
     }
     
     
+=======
+>>>>>>> 1bf447da112485bc6608c3e136635e7d4483ee86
     func setData() {
         //get data from hkit
         setHeight()
@@ -170,7 +177,7 @@ class NutritionViewController : UIViewController {
         let BMR : Double
         
         if (height != nil) {
-            heightCalc = 6.25 * height!
+            heightCalc = 6.25 * (height! * 100)
         }
         if (weight != nil){
             weightCalc = 10 * weight!

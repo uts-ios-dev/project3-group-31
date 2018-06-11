@@ -48,11 +48,11 @@ class ActivityTableViewController : UITableViewController, MKMapViewDelegate, CL
                 fatalError("error");
             }
             
-            //DispatchQueue.main.async {
+            DispatchQueue.main.async {
                 let hrResult = newResults.first?.quantity.doubleValue(for: (HKUnit.count()).unitDivided(by: HKUnit.minute()))
                 let newTxt: String = String(Int(hrResult!))
                 self.bpmTxt.text = newTxt + " bpm"
-            //}
+            }
         }
         
         healthStore!.execute(hrQuery)
