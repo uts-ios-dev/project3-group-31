@@ -16,8 +16,18 @@ class ActivityTableViewController : UITableViewController, MKMapViewDelegate, CL
     var healthStore : HKHealthStore?
     let locationManager = CLLocationManager()
     
-    @IBOutlet weak var bpmTxt: UILabel!
     @IBOutlet weak var mapView: MKMapView!
+    
+    var weight: Double? = 0
+    var gender: String? = nil
+    var heartrate: Double? = 0
+    var age: Int? = 0
+    var calories:Double? = 0
+
+    @IBOutlet weak var speedLabel: UILabel!
+    @IBOutlet weak var heartRateLabel: UILabel!
+    @IBOutlet weak var caloriesLabel: UILabel!
+    
     
     override func viewDidLoad() {
         mapView.delegate = self
@@ -33,7 +43,60 @@ class ActivityTableViewController : UITableViewController, MKMapViewDelegate, CL
         }
         
         setHeartRate()
+        setWeight()
+        setAge()
+        setGender()
+        setCalories()
     }
+    
+    func setWeight() {
+        let weightType = HKObjectType.quantityType(forIdentifier: .bodyMass)
+        
+        let weightQuery = HKSampleQuery(sampleType: weightType!,
+                                        predicate: nil,
+                                        limit: 1,
+                                        sortDescriptors: nil)
+        { (query:HKSampleQuery, results:[HKSample]?, error:Error?) -> Void in
+            
+            guard let newResults = results as? [HKQuantitySample] else {
+                fatalError("error");
+            }
+            
+            DispatchQueue.main.async {
+                self.weight = newResults.first?.quantity.doubleValue(for: HKUnit.gramUnit(with: .kilo))
+            }
+        }
+        if healthStore != nil {
+            healthStore!.execute(weightQuery)
+        }
+    }
+    
+    func setAge() {
+        do {
+            let dateOfBirth = try healthStore!.dateOfBirthComponents()
+            let now = Date()
+            let ageComponents = Calendar.current.dateComponents([.year], from: dateOfBirth.date!, to: now)
+            let ageResult = ageComponents.year
+            age = Int(ageResult!)
+            
+        } catch {
+            print("Error fetching DOB")
+        }
+    }
+    
+    func setGender() {
+        do {
+            let genderResult = try healthStore!.biologicalSex().biologicalSex
+            if genderResult == HKBiologicalSex.male {
+                gender = "Male"
+            } else if genderResult == HKBiologicalSex.female {
+                gender = "Female"
+            }
+        } catch {
+            print("Error fetching sex")
+        }
+    }
+
     
     func setHeartRate() {
         let hrType = HKObjectType.quantityType(forIdentifier: .heartRate)
@@ -50,23 +113,59 @@ class ActivityTableViewController : UITableViewController, MKMapViewDelegate, CL
             
             DispatchQueue.main.async {
                 let hrResult = newResults.first?.quantity.doubleValue(for: (HKUnit.count()).unitDivided(by: HKUnit.minute()))
-                let newTxt: String = String(Int(hrResult!))
-                self.bpmTxt.text = newTxt + " bpm"
+                if (hrResult != nil)
+                {
+                    self.heartrate = hrResult
+                    self.heartRateLabel.text = String(Int(self.heartrate!)) + " bpm"
+                }
             }
         }
         
         healthStore!.execute(hrQuery)
     }
+   
+    func setCalories() {
+        
+        if (gender == "Male")
+        {
+            let equationp1 =  Double((Double(age!) * 0.2017) - (Double(weight!) * 0.09036))
+            let equationp2 = Double((Double(heartrate!) * 0.6309) - (55.0969))
+            let equationp3 = (1 / 4.184)
+            calories = equationp1 + equationp2 * equationp3
+        }
+        if (gender == "Female")
+        {
+            let equationp4 = Double((Double(age!) * 0.074) - (Double(weight!) * 0.05741))
+            let equationp5 = Double((Double(heartrate!) * 0.4472) - (20.4022))
+            let equationp6 = (1 / 4.184)
+            let calories = equationp4 + equationp5 * equationp6
+        }
+        if calories != nil{
+            
+            caloriesLabel.text = String(Int(calories!))
+            caloriesLabel.text = String("jokes")
+            
+        }
+        
+    }
     
     
     //Override the Update location function, so that I can act whenever iOS updates the map with my new location
     func locationManager(_ _manager : CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        let start = locations.first!
+        print(start)
         let location = locations.last!
+        print(location)
+
         //Set to the whole area of the map shows 500 by 500
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, 500, 500)
         mapView.setRegion(coordinateRegion, animated: true)
         //Set my current location using a 2d point so I can being drawing with it.
+        
         let currLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        
+        speedLabel.text = "\(location.speed)"
         
         locationManager.stopUpdatingLocation()
     }

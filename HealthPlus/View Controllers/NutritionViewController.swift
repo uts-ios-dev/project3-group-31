@@ -32,6 +32,7 @@ class NutritionViewController : UIViewController {
     var newWeight:String?
     var newAge:String?
     var newGender:String?
+    
     var manual_update = false
 
     
