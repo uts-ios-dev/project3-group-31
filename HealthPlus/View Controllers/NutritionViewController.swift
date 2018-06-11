@@ -27,13 +27,6 @@ class NutritionViewController : UIViewController {
     var ageCalc = 0
     var ageModifier = 0.0
     
-    var newHeight:String?
-    var newWeight:String?
-    var newAge:String?
-    var newGender:String?
-    
-    var manual_update = false
-
     
     @IBAction func calcBtn(_ sender: Any) {
         calTxt.text = String(calcBMR()) + " calories"
@@ -66,19 +59,19 @@ class NutritionViewController : UIViewController {
             }
             
             DispatchQueue.main.async {
-            self.height = newResults.first?.quantity.doubleValue(for: HKUnit.meter())
-              if (self.height != nil) {
-                if let newTxt: String = String(format:"%.2f", self.height!) {
-                    self.heightTxt.text = newTxt + " m"
-                  }
-               }
+                self.height = newResults.first?.quantity.doubleValue(for: HKUnit.meter())
+                if (self.height != nil) {
+                    if let newTxt: String = String(format:"%.2f", self.height!) {
+                        self.heightTxt.text = newTxt + " m"
+                    }
+                }
             }
         }
         
         if healthStore != nil {
-              healthStore!.execute(heightQuery)
+            healthStore!.execute(heightQuery)
         }
-
+        
     }
     
     func setWeight() {

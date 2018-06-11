@@ -22,7 +22,6 @@ class ActivityTableViewController : UITableViewController, MKMapViewDelegate, CL
     var gender: String? = nil
     var heartrate: Double? = 0
     var age: Int? = 0
-    var calories:Double? = 0
 
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var heartRateLabel: UILabel!
@@ -46,7 +45,6 @@ class ActivityTableViewController : UITableViewController, MKMapViewDelegate, CL
         setWeight()
         setAge()
         setGender()
-        setCalories()
     }
     
     func setWeight() {
@@ -123,31 +121,6 @@ class ActivityTableViewController : UITableViewController, MKMapViewDelegate, CL
         
         healthStore!.execute(hrQuery)
     }
-   
-    func setCalories() {
-        
-        if (gender == "Male")
-        {
-            let equationp1 =  Double((Double(age!) * 0.2017) - (Double(weight!) * 0.09036))
-            let equationp2 = Double((Double(heartrate!) * 0.6309) - (55.0969))
-            let equationp3 = (1 / 4.184)
-            calories = equationp1 + equationp2 * equationp3
-        }
-        if (gender == "Female")
-        {
-            let equationp4 = Double((Double(age!) * 0.074) - (Double(weight!) * 0.05741))
-            let equationp5 = Double((Double(heartrate!) * 0.4472) - (20.4022))
-            let equationp6 = (1 / 4.184)
-            let calories = equationp4 + equationp5 * equationp6
-        }
-        if calories != nil{
-            
-            caloriesLabel.text = String(Int(calories!))
-            
-        }
-        
-    }
-    
     
     //Override the Update location function, so that I can act whenever iOS updates the map with my new location
     func locationManager(_ _manager : CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -164,7 +137,7 @@ class ActivityTableViewController : UITableViewController, MKMapViewDelegate, CL
         
         let currLocation = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         
-        speedLabel.text = "\(location.speed)"
+        //speedLabel.text = "\(location.speed)"
         
         locationManager.stopUpdatingLocation()
     }
